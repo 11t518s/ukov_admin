@@ -1,17 +1,17 @@
-import '../App.css';
 import Footer from './Footer';
 import React from 'react';
 import Navbar from './Navbar';
 import Home from '../route/home';
 import Program from '../route/program';
 import Recruit from '../route/recruit';
-
-import '../css/App.css';
 import { Route, Switch } from 'react-router';
 import { HashRouter } from 'react-router-dom';
+import '../css/main.css';
+
 
 
 function App() {
+
 
   return (
     <>
@@ -19,7 +19,7 @@ function App() {
       <Navbar />
       <hr />
       <Switch>
-        <Route exact path='/home'>
+        <Route exact path={['/', '/home']}>
             <Home />
         </Route>
         <Route exact path='/program'>

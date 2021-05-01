@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SBVA from './SBVA.png';
+import '../css/Footer.css';
+
 
 
 function Footer () {
@@ -12,7 +14,7 @@ function Footer () {
           카카오톡 플러스 친구 : UKOV 대학생벤처기사단</h2>
           <p>copyright&#169;{new Date().getFullYear()} ukov. All right reserved </p>
         </div>
-        <img src={ SBVA } alt='SoftBank' />
+        <a href='http://www.softbank.co.kr/ko2/' target='blank'><img src={ SBVA } alt='SoftBank' /></a>
       </div>
     </footer>
   )

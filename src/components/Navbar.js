@@ -4,6 +4,8 @@ import Menu from './menu.png';
 import Logo from './logo.png';
 
 import '../css/Navbar.css';
+import { NavLink } from 'react-router-dom';
+import Program from '../route/program';
 
 
 function Navbar(props) {
@@ -22,14 +24,14 @@ function Navbar(props) {
       {Mobile && 
       <>
       <header>
-        <img className='logo' src={ Logo } alt='logo' onClick={props.Home} />
+        <NavLink exact to='/home'><img   className='logo' src={ Logo } alt='logo' /></NavLink>
         <img className='menu' src={ Menu } alt='menu' onClick={ () =>setToggle(!toggle)} />
       </header>
         {toggle ?(          
           <ul className='mobile'>
-            <li onClick={props.Home}>home</li>
-            <li onClick={props.Program}>program</li>
-            <li onClick={props.Recruit}>recruit</li>
+          <li><NavLink exact to='/home'>home</NavLink></li>
+          <li><NavLink exact to='/program'> program </NavLink></li>
+          <li><NavLink exact to='/recruit'>recruit</NavLink></li>
           </ul>
         ) : null
         }
@@ -37,11 +39,11 @@ function Navbar(props) {
       }
       {Web &&     
       <header>
-        <img className="logo" src={ Logo } alt='logo' onClick={props.Home}></img>
+        <NavLink exact to='/home'><img className='logo' src={ Logo } alt='logo' /></NavLink>
         <ul className='web'>
-          <li onClick={props.Home}>home</li>
-          <li onClick={props.Program}>program</li>
-          <li onClick={props.Recruit}>recruit</li>
+          <li><NavLink exact to='/home'>home</NavLink></li>
+          <li><NavLink exact to='/program'>program</NavLink></li>
+          <li><NavLink exact to='/recruit'>recruit</NavLink></li>
         </ul>
       </header>
       }

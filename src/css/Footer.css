@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    
+}
+
+hr {
+    border-top: solid 0.1px #f4f4f4;
+    margin: 0
+}
+
+
+footer {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f7f7f7;
+    padding: 50px 20px;
+}
+.contactInfo{
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+footer h1 {
+    font-size: 1.5rem;
+    color: #5f5f5f;
+}
+
+footer h2 {
+    font-size: 1rem;
+    color: #5f5f5f;
+}
+
+footer p {
+    color: #b5b5b5
+}
+
+footer img {
+    padding-top: 8rem;
+}

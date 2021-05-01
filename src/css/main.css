@@ -1,0 +1,12 @@
+h1{
+    font-size: 2.5rem;
+}
+
+p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#whiteText {
+    color: white;
+}
