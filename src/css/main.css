@@ -10,3 +10,7 @@ p{
 #whiteText {
     color: white;
 }
+.equalize {
+    max-width: 1000px;
+    margin: auto
+} 

@@ -1,0 +1,24 @@
+.dDay {
+    background-color: #2d3437;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.countBox {
+    display: flex;
+    justify-content: center;
+    color: black;
+    justify-items: center;
+}
+
+.whiteBox {
+    width: 81px;
+    height: 81px;
+    background-color: white;
+    border-radius: 20px;
+    vertical-align: middle;
+    line-height: inherit;
+}

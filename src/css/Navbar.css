@@ -26,9 +26,8 @@ a {
     text-decoration: none;
     color: #333333;
 }
-
-header ul li:hover {
-    color: #007bff;
+.mobile li:hover {
+    color: white;
 }
 
 .web {
@@ -44,4 +43,9 @@ header ul li:hover {
 .menu {
     width: 27px;
     height: 24px;
+}
+
+.equalize {
+    max-width: 1000px;
+    margin: auto
 }

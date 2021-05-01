@@ -5,8 +5,6 @@ import Logo from './logo.png';
 
 import '../css/Navbar.css';
 import { NavLink } from 'react-router-dom';
-import Program from '../route/program';
-
 
 function Navbar(props) {
 
@@ -24,7 +22,7 @@ function Navbar(props) {
       {Mobile && 
       <>
       <header>
-        <NavLink exact to='/home'><img   className='logo' src={ Logo } alt='logo' /></NavLink>
+        <NavLink exact to='/home'><img className='logo' src={ Logo } alt='logo' /></NavLink>
         <img className='menu' src={ Menu } alt='menu' onClick={ () =>setToggle(!toggle)} />
       </header>
         {toggle ?(          

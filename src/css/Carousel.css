@@ -1,0 +1,20 @@
+.smallBox {
+    width: 320px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+    margin-left: 5px;
+}
+
+.listBox img {
+    width: 320px;
+}
+
+.listBox h1 {
+    font-size: 1rem;
+}
+
+.listBox h2 {
+    font-size: 1.2rem;
+}

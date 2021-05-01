@@ -43,11 +43,15 @@
 
 .prgoramBottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .programBox {
     height: 320px;
+    padding-bottom: 50px;
+
 }
 
 
@@ -67,7 +71,7 @@
 
 .programBox h5 {
     font-size: 25px;
-    padding-top: 38.5px;
+    padding-top: 38px;
     padding-left: 40px;
 }
 
@@ -93,7 +97,3 @@
 }
 
 
-.equalize {
-    max-width: 1000px;
-    margin: auto
-}

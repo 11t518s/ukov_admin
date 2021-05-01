@@ -1,0 +1,9 @@
+.partnerBox {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.partnerBox img {
+    width: 250px;
+}

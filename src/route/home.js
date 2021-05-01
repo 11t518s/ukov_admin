@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from '../components/Carousel'
 import Partner from '../components/Partner';
-import partner from '../components/Partner';
 import '../css/home.css';
 import '../css/main.css';
 import First from './first.jpg';
 import Second from './second.jpg';
 import Third from './third.jpg';
-
+import {dbService} from '../fbase.js'
 
 function Home(props) {
-    
+    const [info, setInfo] = useState([]);
 
+    const getInfo = async () =>{
+        const dbinfo = await dbService.collection("UKOV").get();
+        dbinfo.forEach((document) => {
+            const newInfo = {
+                ...document.data(),
+                id: document.id
+            };
+            setInfo((prev) => [newInfo, ...prev]);
+        });
+    };
+    useEffect(()=>{
+        getInfo();
+    }, [])
+    console.log(info)
     return(
         <div className='body'>
             <div className='info equalize'>
@@ -19,7 +32,15 @@ function Home(props) {
                     <h1>
                         우리는 대학생<br/>
                         벤처기사단입니다.
+                        <div>
+                            {info.map((info)=>(
+                                <h4>{info.year}</h4>
+                            ))}
+                        </div>
+
                     </h1>
+
+
                     <p>
                         UKOV는 Undergraduated Knights of Venture의 약자로,<br/>
                         소프트뱅크벤처스의 후원 아래 엄선된 스타트업의 일을 돕고 함께 성장해 나가는 대외활동입니다.
