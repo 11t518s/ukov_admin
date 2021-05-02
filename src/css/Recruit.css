@@ -12,6 +12,7 @@
     justify-content: center;
     color: black;
     justify-items: center;
+    vertical-align: middle;
 }
 
 .whiteBox {
@@ -22,3 +23,9 @@
     vertical-align: middle;
     line-height: inherit;
 }
+
+.recruitInfoItem {display: flex;}
+.recruitInfoItem h1 {min-width: 300px;}
+.recruitInfoItem div {min-width: 700px;}
+
+.recruitInfoItem h6 {font-size: 1.5rem;color:#468eea}

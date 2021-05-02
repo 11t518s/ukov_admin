@@ -7,9 +7,12 @@ import First from './first.jpg';
 import Second from './second.jpg';
 import Third from './third.jpg';
 import {dbService} from '../fbase.js'
+import Fade from 'react-reveal/Fade'
 
-function Home(props) {
-    const [info, setInfo] = useState([]);
+function Home() {
+
+    
+    const [info, setInfo] = useState();
 
     const getInfo = async () =>{
         const dbinfo = await dbService.collection("UKOV").get();
@@ -18,13 +21,15 @@ function Home(props) {
                 ...document.data(),
                 id: document.id
             };
-            setInfo((prev) => [newInfo, ...prev]);
+            setInfo(newInfo)
         });
-    };
+        };        
+    console.log(info)
+
     useEffect(()=>{
         getInfo();
     }, [])
-    console.log(info)
+
     return(
         <div className='body'>
             <div className='info equalize'>
@@ -32,15 +37,7 @@ function Home(props) {
                     <h1>
                         우리는 대학생<br/>
                         벤처기사단입니다.
-                        <div>
-                            {info.map((info)=>(
-                                <h4>{info.year}</h4>
-                            ))}
-                        </div>
-
                     </h1>
-
-
                     <p>
                         UKOV는 Undergraduated Knights of Venture의 약자로,<br/>
                         소프트뱅크벤처스의 후원 아래 엄선된 스타트업의 일을 돕고 함께 성장해 나가는 대외활동입니다.
@@ -74,24 +71,24 @@ function Home(props) {
                 </div>
             </div>
             <div className='history' id='whiteText'>
-                <h1>년의 여정</h1>
+                <h1>{info?.year} 년의 여정</h1>
                 <p>
                     우리는 주체적으로 배우고 변화에 도전하면서<br/>
                     스타트업 생태계를 위한 인재를 배출합니다.
                 </p>
                 <ul className='historyInfo'>
                     <li>
-                    <h2>년</h2>
+                    <h2>{info?.year} 년</h2>
                     <p>역사</p>
                     </li>
                     <li className='focus'>/</li>
                     <li>
-                    <h2>명</h2>
+                    <h2>{info?.alumni} 명</h2>
                     <p>누적 멤버</p>
                     </li>
                     <li className='focus'>/</li>
                     <li>
-                    <h2>건</h2>
+                    <h2>{info?.project} 건</h2>
                     <p>미니프로젝트</p>
                     </li>
                 </ul>
@@ -104,6 +101,7 @@ function Home(props) {
                     UKOV 단원은 다음과 같은 활동을 함께합니다.
                 </p>
                 <div className='prgoramBottom'>
+                    <Fade left>
                     <div className='programBox' id='whiteText'>
                         <img src={ First } alt='' />
                         <h4>스타트업 인턴십</h4>
@@ -117,6 +115,8 @@ function Home(props) {
                             </h6>
                         </div>
                     </div>
+                    </Fade>
+                    <Fade bottom>
                     <div className='programBox' id='whiteText'>
                         <img src={ Second } alt='' />
                         <h4>미니 프로젝트</h4>
@@ -130,6 +130,8 @@ function Home(props) {
                             </h6>
                         </div>
                     </div>
+                    </Fade>
+                    <Fade right>
                     <div className='programBox' id='whiteText'>
                         <img src={ Third } alt='' />   
                         <h4>네트워킹</h4>
@@ -144,6 +146,7 @@ function Home(props) {
                             </h6>
                         </div>
                     </div>
+                    </Fade>
                 </div>
             </div>
             <div className='review equalize'>

@@ -20,15 +20,16 @@ function Partner() {
     }, [])
     return(
         <div class='partnerBox'>
-            <Fade bottom>
             {partner.map((partner)=>(
                 <a href={partner.partnerLink}>
+                                <Fade bottom>
                     <div>
                         <img src={partner.partnerURL}/>
                     </div>
+                                </Fade>
+
                 </a>
             ))}
-            </Fade>
         </div>
     )
 }

@@ -1,14 +1,24 @@
 .smallBox {
-    width: 320px;
-    height: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 220px;
     overflow: hidden;
     position: relative;
     border-radius: 20px;
-    margin-left: 5px;
 }
 
 .listBox img {
-    width: 320px;
+    position: relative;
+    bottom: -100;
+    top: -100;
+    margin: auto;
+    position: absolute;
+    bottom: -100%;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    vertical-align: middle;
+    max-width: 100%;
 }
 
 .listBox h1 {

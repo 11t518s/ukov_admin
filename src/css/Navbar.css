@@ -1,3 +1,11 @@
+.navbar {    
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 99;
+    border-bottom: 2px solid #f4f4f4;
+}
+
 header {
     font-family: 'Noto Sans KR', sans-serif;
     margin: auto;
