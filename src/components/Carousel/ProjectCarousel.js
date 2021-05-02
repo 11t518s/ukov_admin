@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import '../css/Carousel.css';
-import {dbService} from '../fbase.js'
+import '../../css/Carousel.css';
+import {dbService} from '../../fbase.js'
 
 
 
@@ -30,28 +30,28 @@ function NextArrow(props) {
 
   
 
-function Carousel (){
+function ProjectCarousel(){
 
-    let [review, setReview] = useState([])
-    const getReview = async () =>{
-        const dbreview = await dbService.collection("review").get();
-        dbreview.forEach((document) => {
-            const newReview = {
+    let [project, setProject] = useState([])
+    const getProject = async () =>{
+        const dbproject = await dbService.collection("project").get();
+        dbproject.forEach((document) => {
+            const newproject = {
                 ...document.data(),
                 id: document.id
             };
-            setReview((prev) => [newReview, ...prev]);
+            setProject((prev) => [newproject, ...prev]);
         });
     };
     useEffect(()=>{
-        getReview();
+        getProject();
     }, [])
 
 
 class Slide extends React.Component {
     render() {
         const settings = {
-          
+          className: "center",
           dots: true,
           infinite: true,
           centerPadding: "60px",
@@ -66,14 +66,14 @@ class Slide extends React.Component {
         return (
           <div>
             <Slider {...settings}>
-              {review.map((review)=>(
+              {project.map((project)=>(
                   <div className='listBox'>
-                      <a href={review.reviewLink}>
+                      <a href={project.projectLink}>
                           <div className='smallBox'>
-                            <img src={review.reviewURL}/>
+                            <img src={project.projectURL} alt='project'/>
                           </div>
-                          <h1>{review.title}</h1>
-                          <h2>{review.subtitle}</h2>
+                          <h1>{project.title}</h1>
+                          <h2>{project.subtitle}</h2>
                       </a>
                   </div>
               ))}
@@ -83,13 +83,11 @@ class Slide extends React.Component {
         );
       }
     }
-
     return (
         <>
         <Slide/>
         </>
     )
-
 }
 
-export default Carousel;
+export default ProjectCarousel;

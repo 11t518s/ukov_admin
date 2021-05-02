@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Carousel from '../components/Carousel'
+import InternshipCarousel from '../components/Carousel/InternshipCarousel'
 import Partner from '../components/Partner';
 import '../css/home.css';
 import '../css/main.css';
@@ -24,8 +24,6 @@ function Home() {
             setInfo(newInfo)
         });
         };        
-    console.log(info)
-
     useEffect(()=>{
         getInfo();
     }, [])
@@ -153,7 +151,7 @@ function Home() {
             <h1>UKOV 후기</h1>
             <a href='https://ukov.tistory.com/'><p>더 많은 후기러가기</p></a>
 
-            <Carousel />
+            <InternshipCarousel />
             </div>
 
             <div className='partner equalize'>

@@ -1,0 +1,35 @@
+.internship {
+    margin-top: 120px;
+}
+.project {
+    margin-top: 120px;
+}
+.networking {
+    margin-top: 120px;
+    margin-bottom: 70px;
+}
+
+.networkingBox {
+    display: flex;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.networkingBox div {
+width: 400px;
+border-radius: 20px;
+overflow: hidden;
+}
+
+.networkingBox img {
+    width: 100%;
+}
+
+.networkingBox h1 {
+    font-size: 1rem;
+}
+
+.networkingBox h2 {
+    font-size: 1.5rem;
+}

@@ -22,12 +22,11 @@ function Partner() {
         <div class='partnerBox'>
             {partner.map((partner)=>(
                 <a href={partner.partnerLink}>
-                                <Fade bottom>
-                    <div>
-                        <img src={partner.partnerURL}/>
-                    </div>
-                                </Fade>
-
+                    <Fade bottom>
+                        <div>
+                            <img src={partner.partnerURL} alt={partner.partnerLink}/>
+                        </div>
+                    </Fade>
                 </a>
             ))}
         </div>

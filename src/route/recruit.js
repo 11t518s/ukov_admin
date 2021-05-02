@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Recruit.css';
 import {dbService} from '../fbase'
+import Down from './down.png';
+import Right from './right.png';
+
 
 
 
 function Recruit() {
     
     const [info, setInfo] = useState();
-
+    let [FAQ, setFAQ] = useState([]);
     const getInfo = async () =>{
         const dbinfo = await dbService.collection("UKOV").get();
         dbinfo.forEach((document) => {
@@ -17,12 +20,23 @@ function Recruit() {
             };
             setInfo(newInfo)
         });
-        };        
-
-
+        };
+        const getFAQ = async () =>{
+            const dbFAQ = await dbService.collection("FAQ").get();
+            dbFAQ.forEach((document) => {
+                const newFAQ = {
+                    ...document.data(),
+                    id: document.id
+                };
+                setFAQ((prev) => [newFAQ, ...prev]);
+            });
+        };
     useEffect(()=>{
-        getInfo();
+        getInfo();         getFAQ();
+
     }, [])
+
+
 
 
     
@@ -86,7 +100,7 @@ function Recruit() {
 
 <div className='recruitInfoItem'>
     <h1>지원자격</h1>
-    <div>스타트업 생태계에 관심과 열정이 있는 누구나</div>
+    <div><p>스타트업 생태계에 관심과 열정이 있는 누구나</p></div>
 </div>
 <hr />
 <div className='recruitInfoItem'>
@@ -115,16 +129,44 @@ function Recruit() {
 <div className='recruitInfoItem'>
     <h1>진행 절차</h1>
     <div>
-        %%%%% 여기에 넣을거 넣기
+        <div className='recruitRule'>
+            <div className='circle'>서류 접수</div>
+            <img src={Right} alt=''/>
+            <div className='circle'>UKOV 과정</div>
+            <img src={Right} alt=''/>
+            <div className='circle'>참여사 과정</div>
+            <img src={Right} alt=''/>
+            <div className='circle'>최종 합격</div>
+        </div>
+        <h6>UKOV 과정</h6>
+        <p><b>서류전형</b> : $$$$$까지 서류 접수를 받습니다. ####에 서류 합격자가 발표됩니다.</p>
+        <p><b>면접전형</b> : 합격자를 대상으로 #$$@#$#@$ 양일에 거쳐 면접을 진행합니다.</p>
+        <h6>참여사 곽정</h6>
+        <p>UKOV 과정을 합격한 지원자에 한해<br/>
+            참여사 중 지원자와 핏이 맞는 회사에 지원자의 정보가 전달 됩니다.<br/>
+            추후 과정은 참여사와 지원자 사이에 진행되며,<br/>
+            참여사의 사정에 따라 참여사 과정의 기간이 조정될 수 있습니다.</p>
+        <h6>최종 합격</h6>
+        <p>참여사 과정까지 합격한 지원자로 UKOV 23기 구성원이 꾸려집니다.<br/>
+            UKOV 23기는 UKOV 22기와 함께 발대식을 갖고 23기 활동을 시작합니다.</p>
     </div>
 </div>
 
 <hr />
 
-<div className='recruitInfoItem'>
+
+<div class='recruitInfoItem'>
     <h1>FAQ</h1>
-    <div>여기에 데이터 받아 오기</div>
+    <div>
+        {FAQ.map((FAQ)=>(
+            <>
+                <h6>{FAQ.Q}</h6>
+                <p>{FAQ.A}</p>
+            </>
+        ))}
+    </div>
 </div>
+
 
 <hr />
 
