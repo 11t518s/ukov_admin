@@ -2,8 +2,19 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    max-width: 1000px;
+}
+
+.partnerBox a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .partnerBox img {
+    width: 250px;
+    /* height: 150px; */
+}
+.partnerBox p {
     width: 250px;
 }

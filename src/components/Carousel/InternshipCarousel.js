@@ -4,7 +4,7 @@ import '../../css/Carousel.css';
 import {dbService} from '../../fbase.js'
 
 
-
+ // 원래 화살표인데 좀 이상해서 패스
 function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -29,9 +29,8 @@ function NextArrow(props) {
 
 
   
-
+// 인턴쉽 정보 파이어베이스로 가져오기
 function InternshipCarousel(){
-
     let [internship, setInternship] = useState([])
     const getInternship = async () =>{
         const dbinternship = await dbService.collection("internship").get();
@@ -47,7 +46,7 @@ function InternshipCarousel(){
         getInternship();
     }, [])
 
-
+ // 이건 react-slick
 class Slide extends React.Component {
     render() {
         const settings = {
@@ -60,8 +59,8 @@ class Slide extends React.Component {
             { breakpoint: 1000, settings: { slidesToShow: 2 }}, 
             { breakpoint: 600, settings: { slidesToShow: 1 }}],
           speed: 500,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />
+          // nextArrow: <NextArrow />,
+          // prevArrow: <PrevArrow />
         };
         return (
           <div>

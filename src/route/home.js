@@ -8,12 +8,15 @@ import Second from './second.jpg';
 import Third from './third.jpg';
 import {dbService} from '../fbase.js'
 import Fade from 'react-reveal/Fade'
+import {Link} from 'react-router-dom'
 
-function Home() {
+function Home(props) {
+    // 페이지 이동 시 스크롤을 최상단으로~
+    const Scroll = require('react-scroll');
+    const scroll = Scroll.animateScroll;
 
-    
+    // 기수, 년도 등등 파이어베이스로부터 받아오는 기본적 정보 세팅
     const [info, setInfo] = useState();
-
     const getInfo = async () =>{
         const dbinfo = await dbService.collection("UKOV").get();
         dbinfo.forEach((document) => {
@@ -27,9 +30,8 @@ function Home() {
     useEffect(()=>{
         getInfo();
     }, [])
-
     return(
-        <div className='body'>
+        <body className='body'>
             <div className='info equalize'>
                 <div className='info_top'>
                     <h1>
@@ -166,7 +168,13 @@ function Home() {
 
 
             </div>
-        </div>
+            <div className='history' id='whiteText'>
+                <h1>BEGIN YOUR JOURNEY TO START-UP!</h1>
+                <p>{info?.start_date} 부터 제 {info?.th}기 UKOV 단원을 모집합니다.<br/>
+                    주체적으로 배우고 변화에 도전하면서 스타트업 생태계의 인재가 될 당신을 기다립니다.</p>
+                <Link exact to='/recruit'><div  className='button1' onClick={()=>{scroll.scrollToTop();}}>지원 정보 보러가기</div></Link>
+            </div>        
+        </body>
 
     )
 }

@@ -1,5 +1,5 @@
 .internship {
-    margin-top: 120px;
+    margin-top: 50px;
 }
 .project {
     margin-top: 120px;
@@ -16,20 +16,26 @@
     justify-content: space-around;
 }
 
-.networkingBox div {
-width: 400px;
+.networkingImg{
+max-width: 350px;
+height: 200px;
 border-radius: 20px;
 overflow: hidden;
 }
 
-.networkingBox img {
-    width: 100%;
+.networkingImg img {
+    width: 110%;
+    margin: auto;
+    position: relative;
+    top: -5%;
+    left: -5%;
 }
+
 
 .networkingBox h1 {
     font-size: 1rem;
 }
 
 .networkingBox h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }

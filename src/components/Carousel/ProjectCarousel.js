@@ -60,8 +60,8 @@ class Slide extends React.Component {
             { breakpoint: 1000, settings: { slidesToShow: 2 }}, 
             { breakpoint: 600, settings: { slidesToShow: 1 }}],
           speed: 500,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />
+          // nextArrow: <NextArrow />,
+          // prevArrow: <PrevArrow />
         };
         return (
           <div>

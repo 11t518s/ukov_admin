@@ -4,6 +4,7 @@
     width: 100%;
     z-index: 99;
     border-bottom: 2px solid #f4f4f4;
+    top:0
 }
 
 header {
@@ -16,11 +17,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 ul {
     text-align: center;
-
+    padding: 0;
 }
 
 ul li {
@@ -28,6 +31,7 @@ ul li {
     font-size: 1rem;
     padding: 16px;
     margin: auto;
+    
 }
 
 a {
@@ -35,7 +39,21 @@ a {
     color: #333333;
 }
 .mobile li:hover {
-    color: white;
+    color: blue;
+}
+
+.mobile {
+    position: fixed;
+    background-color: white;
+    z-index: 99;
+    top:34px;
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid #f4f4f4;
+}
+.mobile li {
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .web {
@@ -51,9 +69,4 @@ a {
 .menu {
     width: 27px;
     height: 24px;
-}
-
-.equalize {
-    max-width: 1000px;
-    margin: auto
 }

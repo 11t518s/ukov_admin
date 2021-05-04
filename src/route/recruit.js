@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Recruit.css';
+
 import {dbService} from '../fbase'
 import Down from './down.png';
 import Right from './right.png';
-
-
+import { useMediaQuery } from 'react-responsive';
 
 
 function Recruit() {
+
+    // 반응형을 위한 미디어 쿼리
+    const Mobile = useMediaQuery ({
+        query : "(max-width : 1000px)"
+        })
+      const Web = useMediaQuery ({
+        query : "(min-width : 1000px)"
+        })
     
+    
+    // 기수, 년도 등등 파이어베이스로부터 받아오는 기본적 정보 세팅
     const [info, setInfo] = useState();
-    let [FAQ, setFAQ] = useState([]);
     const getInfo = async () =>{
         const dbinfo = await dbService.collection("UKOV").get();
         dbinfo.forEach((document) => {
@@ -21,25 +30,27 @@ function Recruit() {
             setInfo(newInfo)
         });
         };
-        const getFAQ = async () =>{
-            const dbFAQ = await dbService.collection("FAQ").get();
-            dbFAQ.forEach((document) => {
-                const newFAQ = {
-                    ...document.data(),
-                    id: document.id
-                };
-                setFAQ((prev) => [newFAQ, ...prev]);
-            });
-        };
+        
+    // FAQ데이터 받아오기?
+    let [FAQ, setFAQ] = useState([]);
+    const getFAQ = async () =>{
+        const dbFAQ = await dbService.collection("FAQ").get();
+        dbFAQ.forEach((document) => {
+            const newFAQ = {
+                ...document.data(),
+                id: document.id
+            };
+            setFAQ((prev) => [newFAQ, ...prev]);
+        });
+    };
+    // 비동기 처리를 위해 info, FAQ 활성화
     useEffect(()=>{
-        getInfo();         getFAQ();
+        getInfo();         
+        getFAQ();
 
     }, [])
 
 
-
-
-    
     return(
         <body>
             <div className='dDay'>
@@ -47,33 +58,38 @@ function Recruit() {
                 <h1 id='whiteText'>지금 지원하세요!</h1>
                 <p id='whiteText'>
                     스타트업 생태계를 함께 만들어갈<br/>
-                    %%%%%기 여러분의 지원 
+                    {info?.th}기 여러분의 지원
+                    {/* 자동화시키고 싶었습니당 ㅎ_ㅎ 하드코딩 하지 맙시다우리... */}
                     {info?.end_date < new Date() 
-                    ?('기다리고 있습니다!')
-                    :('감사합니다!')}
+                    ?(' 기다리고 있습니다!')
+                    :(' 감사합니다!')}
                 </p>
+
                 <div className='countBox'>
-                    <div className='whiteBox'>5</div>
-                    .
-                    <div className='whiteBox'>7</div>
-                    -
-                    <div className='whiteBox'>5</div>
-                    .
-                    <div className='whiteBox'>21</div>
+                    <div className='whiteBox'><p>5</p></div>
+                    <div className='dot'>.</div>
+                    <div className='whiteBox'><p>7</p></div>
+                    <div className='dash'>-</div>
+                    <div className='whiteBox'><p>5</p></div>
+                    <div className='dot'>.</div>
+                    <div className='whiteBox'><p>21</p></div>
                 </div>
+                <br/><br/>
+                <button className='button3'><a href='https://docs.google.com/forms/d/e/1FAIpQLSfM4Xkgz-NPWf8chakCbccQWyXxA3K4RU65GeiQm4YUMmiNCA/viewform' target='blank'>지원하러 가기</a></button>
+
                 </div>
 
                 <div className='recruitInfo equalize'>
                     <div className='recruitInfoItem'>
-                        <h1>23기 모집</h1>
+                        <h1>{info?.th}기 모집</h1>
                         <div>
-                            <h6>대학생벤처기사단 $$$$$기로 여러분을 초대합니다!</h6>
+                            <h6>대학생벤처기사단 {info?.th}기로 여러분을 초대합니다!</h6>
                             <p>
                                 스타트업 인재로 성장하고자 하는 대학생들을 위한 모임,<br/>
-                                대학생벤처기사단이 이번 겨울을 함께 보낼 23기 단원을 모집합니다<br/><br/>
+                                대학생벤처기사단이 이번 겨울을 함께 보낼 {info?.th}기 단원을 모집합니다<br/><br/>
                                 한국 스타트업 생태계에 필요한 인재를 길러내기 위해 2009년에 창설된 UKOV는<br/>
                                 소프트뱅크벤처스의 공식 후원을 받고 있는 유일한 학생단체로서<br/>
-                                지난 11년 간 190 여 명의 업계 인재들을 배출해왔습니다.<br/><br/>
+                                지난 {info?.year}년 간 {info?.alumni}여 명의 업계 인재들을 배출해왔습니다.<br/><br/>
                                 스타트업에서의 인턴십 외에도 미니 스타트업 프로젝트, 전문가 강연 등 프로그램을 원하는 대로 계획하고<br/>
                                 도전할 수 있는 UKOV에 지금 바로 지원하세요.
                             </p>
@@ -117,7 +133,7 @@ function Recruit() {
     <div>하단의 지원서 작성 후, typeform 제출<br/>
     디자인 직군의 경우 포트폴리오 첨부하여 제출<br/>
 
-    <button onClick>지원서 다운로드</button>
+    <button className='button2'>지원서 다운로드</button>
     </div>
 </div>
 
@@ -131,24 +147,28 @@ function Recruit() {
     <div>
         <div className='recruitRule'>
             <div className='circle'>서류 접수</div>
-            <img src={Right} alt=''/>
+            {Web &&<img src={Right} alt=''/>}
+            {Mobile &&<img src={Down} alt=''/>}
+
             <div className='circle'>UKOV 과정</div>
-            <img src={Right} alt=''/>
+            {Web &&<img src={Right} alt=''/>}
+            {Mobile &&<img src={Down} alt=''/>}
             <div className='circle'>참여사 과정</div>
-            <img src={Right} alt=''/>
+            {Web &&<img src={Right} alt=''/>}
+            {Mobile &&<img src={Down} alt=''/>}
             <div className='circle'>최종 합격</div>
         </div>
         <h6>UKOV 과정</h6>
-        <p><b>서류전형</b> : $$$$$까지 서류 접수를 받습니다. ####에 서류 합격자가 발표됩니다.</p>
-        <p><b>면접전형</b> : 합격자를 대상으로 #$$@#$#@$ 양일에 거쳐 면접을 진행합니다.</p>
-        <h6>참여사 곽정</h6>
-        <p>UKOV 과정을 합격한 지원자에 한해<br/>
+        <p className='recruitRuleText'><b>서류전형</b> : {info?.end_date}까지 서류 접수를 받습니다. {info?.resumePass}에 서류 합격자가 발표됩니다.<br/>
+            <b>면접전형</b> : 합격자를 대상으로 {info?.meeting1},{info?.meeting2} 양일에 거쳐 면접을 진행합니다.</p>
+        <h6>참여사 과정</h6>
+        <p className='recruitRuleText'>UKOV 과정을 합격한 지원자에 한해<br/>
             참여사 중 지원자와 핏이 맞는 회사에 지원자의 정보가 전달 됩니다.<br/>
             추후 과정은 참여사와 지원자 사이에 진행되며,<br/>
             참여사의 사정에 따라 참여사 과정의 기간이 조정될 수 있습니다.</p>
         <h6>최종 합격</h6>
-        <p>참여사 과정까지 합격한 지원자로 UKOV 23기 구성원이 꾸려집니다.<br/>
-            UKOV 23기는 UKOV 22기와 함께 발대식을 갖고 23기 활동을 시작합니다.</p>
+        <p className='recruitRuleText'>참여사 과정까지 합격한 지원자로 UKOV {info?.th}기 구성원이 꾸려집니다.<br/>
+            UKOV {info?.th}기는 UKOV {info?.th - 1}기와 함께 발대식을 갖고 {info?.th}기 활동을 시작합니다.</p>
     </div>
 </div>
 

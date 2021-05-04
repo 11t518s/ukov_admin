@@ -6,30 +6,107 @@
     padding-top: 80px;
     padding-bottom: 80px;
 }
+
+
+
+.button3 {
+    display: block;
+    margin: auto;
+    width: 13em;
+    margin-top: 34px;
+    border-radius: 8px;
+    background-color: #468eea;
+    border: 1px solid #468eea;
+    padding: 15px 70px;
+    font-size: 1.2em;
+}
+
+.button2 {
+    display: block;
+    width: 13em;
+    margin-top: 34px;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #468eea;
+    padding: 15px;
+    font-size: 1rem;
+    color: #468eea;
+}
+
+.button3 a {
+    color: white;
+}
+
+
 .countBox {
     display: flex;
     justify-content: center;
     color: black;
-    justify-items: center;
-    vertical-align: middle;
 }
 .whiteBox {
     width: 81px;
     height: 81px;
     background-color: white;
     border-radius: 20px;
-    vertical-align: middle;
-    line-height: inherit;
+    display: flex;
+    justify-content: center;
 }
-.recruitInfoItem {display: flex;}
-.recruitInfoItem h1 {width: 300px;}
-.recruitInfoItem div {width: 700px;}
-.recruitInfoItem h6 {font-size: 1.5rem;color:#468eea}
+.whiteBox p{
+    font-size: 2rem;
+    margin-top: 23px;
+}
+
+
+.dot {
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 40px;
+}
+.dash {
+    color: white;
+    font-size: 2rem;
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.recruitInfoItem {
+    display: flex;
+    margin:50px 10px;
+}
+
+.recruitInfoItem h1 {
+    font-size: 2rem;
+    width: 300px;
+    margin: 0
+}
+
+.recruitInfoItem div {
+    font-size: 1rem;
+    width: 700px;     
+    color: #5f5f5f;
+}
+.recruitInfoItem p {
+    margin: 0;
+}
+
+.recruitInfoItem h6 {
+    font-size: 1.5rem;
+    color:#468eea;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
 .recruitRule {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 60px;
 }
+.recruitRuleText{
+    margin-bottom: 40px;
+}
+
 .circle {
     border: 1px solid #5f5f5f;
     width: 150px;
@@ -41,6 +118,40 @@
     margin-right: 5px;
 }
 .recruitRule img {
-    width: 20px;
+    width: 15px;
     height: 15px;
+}
+
+
+
+
+@media (max-width: 1000px) {
+    .recruitRule {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    .circle {
+        max-width: 150px;    
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .recruitInfoItem h1 {
+        margin-bottom: 60px;
+    }
+
+    .recruitInfoItem h6 {
+        margin-bottom: 20px;
+        margin-top: 40px;
+
+    }
+    
+    .recruitInfoItem div {
+        width: 100%;     
+        color: #5f5f5f;
+    }
+
+    .recruitInfoItem {
+        flex-wrap: wrap;
+    }
 }

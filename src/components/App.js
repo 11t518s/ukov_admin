@@ -10,14 +10,13 @@ import '../css/main.css';
 
 
 
-function App() {
 
+function App() {
 
   return (
     <>
     <HashRouter>
       <Navbar />
-      <hr />
       <Switch>
         <Route exact path={['/', '/home']}>
             <Home />

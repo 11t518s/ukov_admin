@@ -28,7 +28,10 @@ function Partner() {
                         </div>
                     </Fade>
                 </a>
+                
             ))}
+                        <p>+60</p>
+
         </div>
     )
 }

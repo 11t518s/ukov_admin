@@ -1,5 +1,4 @@
 .smallBox {
-    margin-left: 20px;
     margin-right: 20px;
     height: 220px;
     overflow: hidden;
@@ -8,9 +7,6 @@
 }
 
 .listBox img {
-    position: relative;
-    bottom: -100;
-    top: -100;
     margin: auto;
     position: absolute;
     bottom: -100%;
@@ -18,13 +14,35 @@
     right: -100%;
     top: -100%;
     vertical-align: middle;
-    max-width: 100%;
+    max-width: 125%;
+    
 }
 
 .listBox h1 {
+    margin-top: 20px;
+    margin-bottom: 0;
     font-size: 1rem;
+    color: #5f5f5f;
 }
 
 .listBox h2 {
-    font-size: 1.2rem;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #5f5f5f;
+}
+
+.listBox:hover a {
+    color: blue;
+}
+
+
+
+@media (max-width: 1000px) {
+
+    .listBox img {
+        max-width: 100%;
+        margin: 0;
+
+    }
+    
 }
