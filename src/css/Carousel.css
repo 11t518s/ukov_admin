@@ -21,13 +21,13 @@
 .listBox h1 {
     margin-top: 20px;
     margin-bottom: 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #5f5f5f;
 }
 
 .listBox h2 {
     margin-top: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #5f5f5f;
 }
 
@@ -41,8 +41,9 @@
 
     .listBox img {
         max-width: 100%;
-        margin: 0;
+    }
+    .smallBox {
+            margin-right: 0px;
 
     }
-    
 }

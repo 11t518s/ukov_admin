@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 import {dbService} from '../fbase.js'
 import Fade from 'react-reveal/Fade'
 import '../css/Program.css';
+import '../css/main.css';
 import Data from '../components/dataSet/Data';
 
 
@@ -55,7 +56,7 @@ function Program() {
                             <img src={networking.networkingURL} alt={networking.networkingLink}/>
                             </div>  
                             <h1>{networking.title}</h1>
-                          <h2>{networking.subtitle}</h2>
+                          <p>{networking.subtitle}</p>
                         </div>
                     </Fade>
                 </a>

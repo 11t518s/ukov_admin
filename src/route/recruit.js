@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Recruit.css';
-
+import '../css/main.css';
 import {dbService} from '../fbase'
 import Down from './down.png';
 import Right from './right.png';
@@ -17,7 +17,6 @@ function Recruit() {
         query : "(min-width : 1000px)"
         })
     
-    
     // 기수, 년도 등등 파이어베이스로부터 받아오는 기본적 정보 세팅
     const [info, setInfo] = useState();
     const getInfo = async () =>{
@@ -31,7 +30,7 @@ function Recruit() {
         });
         };
         
-    // FAQ데이터 받아오기?
+    // FAQ데이터 받아오기
     let [FAQ, setFAQ] = useState([]);
     const getFAQ = async () =>{
         const dbFAQ = await dbService.collection("FAQ").get();
@@ -43,13 +42,24 @@ function Recruit() {
             setFAQ((prev) => [newFAQ, ...prev]);
         });
     };
+    // recruit 데이터 받아오기
+    let [recruit, setRecruit] = useState([]);
+    const getRecruit = async () =>{
+        const dbrecruit = await dbService.collection("recruit").get();
+        dbrecruit.forEach((document) => {
+            const newRecruit = {
+                ...document.data(),
+                id: document.id
+            };
+            setRecruit((prev) => [newRecruit, ...prev]);
+        });
+    };
     // 비동기 처리를 위해 info, FAQ 활성화
     useEffect(()=>{
         getInfo();         
         getFAQ();
-
+        getRecruit();
     }, [])
-
 
     return(
         <body>
@@ -85,13 +95,13 @@ function Recruit() {
                         <div>
                             <h6>대학생벤처기사단 {info?.th}기로 여러분을 초대합니다!</h6>
                             <p>
-                                스타트업 인재로 성장하고자 하는 대학생들을 위한 모임,<br/>
+                                스타트업 인재로 성장하고자 하는 대학생들을 위한 모임,{Web && <br/>}
                                 대학생벤처기사단이 이번 겨울을 함께 보낼 {info?.th}기 단원을 모집합니다<br/><br/>
-                                한국 스타트업 생태계에 필요한 인재를 길러내기 위해 2009년에 창설된 UKOV는<br/>
-                                소프트뱅크벤처스의 공식 후원을 받고 있는 유일한 학생단체로서<br/>
+                                한국 스타트업 생태계에 필요한 인재를 길러내기 위해 2009년에 창설된 UKOV는{Web && <br/>}
+                                소프트뱅크벤처스의 공식 후원을 받고 있는 유일한 학생단체로서{Web && <br/>}
                                 지난 {info?.year}년 간 {info?.alumni}여 명의 업계 인재들을 배출해왔습니다.<br/><br/>
-                                스타트업에서의 인턴십 외에도 미니 스타트업 프로젝트, 전문가 강연 등 프로그램을 원하는 대로 계획하고<br/>
-                                도전할 수 있는 UKOV에 지금 바로 지원하세요.
+                                스타트업에서의 인턴십 외에도 미니 스타트업 프로젝트, 전문가 강연 등 프로그램을{Web && <br/>}
+                                원하는 대로 계획하고 도전할 수 있는 UKOV에 지금 바로 지원하세요.
                             </p>
                         </div>
                     </div>
@@ -113,7 +123,6 @@ function Recruit() {
                         </div>
                     </div>
                     <hr />
-
 <div className='recruitInfoItem'>
     <h1>지원자격</h1>
     <div><p>스타트업 생태계에 관심과 열정이 있는 누구나</p></div>
@@ -122,41 +131,44 @@ function Recruit() {
 <div className='recruitInfoItem'>
     <h1>선발 부분</h1>
     <div className='recruitPartnerInfo'>
-        {}
+        {recruit.map((recruit)=>(
+                <a href={recruit.recruitLink}>
+                    <img src={recruit.recruitURL} alt={recruit.title}/>
+                    <h5>{recruit.title}</h5>
+                    <p>{recruit.text1}</p>
+                    <p>{recruit.text2}</p>
+                    <p>{recruit.text3}</p>
+                    <p>{recruit.text4}</p>
+                    <p>{recruit.text5}</p>
+                </a>
+        ))}
     </div>
 </div>
-
 <hr />
-
 <div className='recruitInfoItem'>
     <h1>지원 방법</h1>
     <div>하단의 지원서 작성 후, typeform 제출<br/>
     디자인 직군의 경우 포트폴리오 첨부하여 제출<br/>
 
-    <button className='button2'>지원서 다운로드</button>
+    <a href={info?.file} className='button2'>지원서 다운로드</a>
     </div>
 </div>
-
-
-
 <hr />
-
-
 <div className='recruitInfoItem'>
     <h1>진행 절차</h1>
     <div>
         <div className='recruitRule'>
-            <div className='circle'>서류 접수</div>
+            <span className='circle'>서류 접수</span>
             {Web &&<img src={Right} alt=''/>}
             {Mobile &&<img src={Down} alt=''/>}
 
-            <div className='circle'>UKOV 과정</div>
+            <span className='circle'>UKOV 과정</span>
             {Web &&<img src={Right} alt=''/>}
             {Mobile &&<img src={Down} alt=''/>}
-            <div className='circle'>참여사 과정</div>
+            <span className='circle'>참여사 과정</span>
             {Web &&<img src={Right} alt=''/>}
             {Mobile &&<img src={Down} alt=''/>}
-            <div className='circle'>최종 합격</div>
+            <span className='circle'>최종 합격</span>
         </div>
         <h6>UKOV 과정</h6>
         <p className='recruitRuleText'><b>서류전형</b> : {info?.end_date}까지 서류 접수를 받습니다. {info?.resumePass}에 서류 합격자가 발표됩니다.<br/>
@@ -171,30 +183,21 @@ function Recruit() {
             UKOV {info?.th}기는 UKOV {info?.th - 1}기와 함께 발대식을 갖고 {info?.th}기 활동을 시작합니다.</p>
     </div>
 </div>
-
 <hr />
-
-
 <div class='recruitInfoItem'>
     <h1>FAQ</h1>
     <div>
         {FAQ.map((FAQ)=>(
             <>
-                <h6>{FAQ.Q}</h6>
-                <p>{FAQ.A}</p>
+                <h6>Q. {FAQ.Q}</h6>
+                <p>{FAQ.A}<br/>{FAQ.A2}<br/>{FAQ.A3}<br/>{FAQ.A4}<br/>{FAQ.A5}</p>
             </>
         ))}
     </div>
 </div>
-
-
 <hr />
-
 </div>
 </body>
     )
 }
-
-
-
 export default Recruit;

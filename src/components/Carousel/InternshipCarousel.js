@@ -50,7 +50,6 @@ function InternshipCarousel(){
 class Slide extends React.Component {
     render() {
         const settings = {
-          className: "center",
           dots: true,
           infinite: true,
           centerPadding: "60px",
@@ -59,8 +58,6 @@ class Slide extends React.Component {
             { breakpoint: 1000, settings: { slidesToShow: 2 }}, 
             { breakpoint: 600, settings: { slidesToShow: 1 }}],
           speed: 500,
-          // nextArrow: <NextArrow />,
-          // prevArrow: <PrevArrow />
         };
         return (
           <div>

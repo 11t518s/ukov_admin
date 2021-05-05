@@ -17,10 +17,10 @@
     display: flex;
 }
 .info_bottom_right {
-    min-width: 500px;
+    width: 500px;
 }
 .info_bottom_left {
-    min-width: 500px;
+    width: 500px;
 }
 
 .focus {
@@ -29,8 +29,9 @@
 }
 
 .history h2 {
-    font-weight: 200;
-    font-size : 2.5rem
+    font-weight: 700;
+    font-size : 2.5rem;
+    margin-bottom: 10px;
 }
 
 .history p {
@@ -40,11 +41,8 @@
 .history {
     margin-top: 100px;
     padding: 80px 15px;
-
-    
     background-color: #2d3437;
     text-align: center;
-    
 }
 
 .historyInfo {
@@ -93,7 +91,7 @@
     height: 320px;
     width: 320px;
     position: relative;
-    bottom: 431px;
+    bottom: 436px;
     border-radius: 20px;
     background-color: gray;
     opacity: 0;
@@ -131,5 +129,11 @@
     }
     .prgoramBottom {
         justify-content: space-around;
+    }
+    .info_bottom_right {
+        width: 100%;
+    }
+    .info_bottom_left {
+        width: 100%;
     }
 }

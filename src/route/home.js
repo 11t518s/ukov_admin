@@ -10,10 +10,24 @@ import {dbService} from '../fbase.js'
 import Fade from 'react-reveal/Fade'
 import {Link} from 'react-router-dom'
 
+import { useMediaQuery } from 'react-responsive';
+
+
+
+
 function Home(props) {
     // 페이지 이동 시 스크롤을 최상단으로~
     const Scroll = require('react-scroll');
     const scroll = Scroll.animateScroll;
+
+    // 반응형을 위한 미디어 쿼리
+    const Mobile = useMediaQuery ({
+        query : "(max-width : 1000px)"
+        })
+    const Web = useMediaQuery ({
+        query : "(min-width : 1000px)"
+    })
+        
 
     // 기수, 년도 등등 파이어베이스로부터 받아오는 기본적 정보 세팅
     const [info, setInfo] = useState();
@@ -30,6 +44,7 @@ function Home(props) {
     useEffect(()=>{
         getInfo();
     }, [])
+
     return(
         <body className='body'>
             <div className='info equalize'>
@@ -39,7 +54,7 @@ function Home(props) {
                         벤처기사단입니다.
                     </h1>
                     <p>
-                        UKOV는 Undergraduated Knights of Venture의 약자로,<br/>
+                        UKOV는 Undergraduated Knights of Venture의 약자로,  {Web && <br/>}
                         소프트뱅크벤처스의 후원 아래 엄선된 스타트업의 일을 돕고 함께 성장해 나가는 대외활동입니다.
                     </p>
                     </div>
@@ -49,10 +64,10 @@ function Home(props) {
                             UKOV 미션 
                         </h2>
                         <p>
-                            <b>많은 사람들이 스타트업 생태계로 soft-landing하는 것</b><br/>
-                            스타트업 인턴십을 통해 스타트업의 현장을 피부로 느끼고<br/>
+                            <b>사람들이 스타트업 생태계로 soft-landing하는 것</b><br/>
+                            스타트업 인턴십을 통해 스타트업의 현장을 피부로 느끼고{Web && <br/>}
                             개인에게 맞는 일을 탐색합니다.<br/>
-                            또한 동기들과의 협업 프로젝트를 통해 업무 협력성을 기르고<br/>
+                            또한 동기들과의 협업 프로젝트를 통해 업무 협력성을 기르고{Web && <br/>}
                             세상을 보는 시야를 확장합니다.
                         </p>
                     </div>
@@ -62,9 +77,9 @@ function Home(props) {
                         </h2>
                         <p>
                             <b>스타트업을 통해 세상에 많은 긍정적 영향을 미치는 것</b><br/>
-                            성공적인 스타트업 생태계 구성원이 되는 성장의 경험을<br/>
+                            성공적인 스타트업 생태계 구성원이 되는 성장의 경험을{Web && <br/>}
                             제공해주는 것을 목표로 합니다.<br/>
-                            그 성장 싸이클을 통해 양질의 인재로 거듭나<br/>
+                            그 성장 싸이클을 통해 양질의 인재로 거듭나{Web && <br/>}
                             세상을 바꾸는 사람들이 되는 것을 꿈꿉니다.
                         </p>
                     </div>
@@ -88,7 +103,7 @@ function Home(props) {
                     </li>
                     <li className='focus'>/</li>
                     <li>
-                    <h2>{info?.project} 건</h2>
+                    <h2>{info?.project} 건</h2>
                     <p>미니프로젝트</p>
                     </li>
                 </ul>
@@ -165,8 +180,6 @@ function Home(props) {
                 <div className='partnerGrid'>
                     <Partner />
                 </div>
-
-
             </div>
             <div className='history' id='whiteText'>
                 <h1>BEGIN YOUR JOURNEY TO START-UP!</h1>
@@ -175,10 +188,6 @@ function Home(props) {
                 <Link exact to='/recruit'><div  className='button1' onClick={()=>{scroll.scrollToTop();}}>지원 정보 보러가기</div></Link>
             </div>        
         </body>
-
     )
 }
-
-
-
 export default Home;

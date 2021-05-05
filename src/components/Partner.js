@@ -30,7 +30,7 @@ function Partner() {
                 </a>
                 
             ))}
-                        <p>+60</p>
+        <div className='alumni'><p>+60</p></div>
 
         </div>
     )

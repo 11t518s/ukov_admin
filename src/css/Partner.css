@@ -6,15 +6,31 @@
 }
 
 .partnerBox a {
+    width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .partnerBox img {
-    width: 250px;
+    width:90%;
+    margin: auto;
     /* height: 150px; */
 }
 .partnerBox p {
     width: 250px;
+    margin-bottom: 10px;
+}
+
+.alumni {
+    display: flex;
+    text-align: center;    
+    align-items: center;
+
+}
+
+.alumni p {
+    font-size: 25px;
+    color: #5f5f5f;
 }

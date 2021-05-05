@@ -3,11 +3,9 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding-top: 80px;
+    padding-top: 120px;
     padding-bottom: 80px;
 }
-
-
 
 .button3 {
     display: block;
@@ -15,22 +13,24 @@
     width: 13em;
     margin-top: 34px;
     border-radius: 8px;
-    background-color: #468eea;
-    border: 1px solid #468eea;
+    background-color: #0091ff;
+    border: 1px solid #0091ff;
     padding: 15px 70px;
     font-size: 1.2em;
 }
 
 .button2 {
+    text-align: center;
     display: block;
     width: 13em;
     margin-top: 34px;
+    margin-bottom: 50px;
     border-radius: 8px;
     background-color: white;
-    border: 1px solid #468eea;
+    border: 1px solid #0091ff;
     padding: 15px;
     font-size: 1rem;
-    color: #468eea;
+    color: #0091ff;
 }
 
 .button3 a {
@@ -53,27 +53,29 @@
 }
 .whiteBox p{
     font-size: 2rem;
-    margin-top: 23px;
+    margin-top: 16px;
 }
+
+
 
 
 .dot {
     color: white;
     font-size: 2.5rem;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 .dash {
     color: white;
     font-size: 2rem;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-
 .recruitInfoItem {
     display: flex;
     margin:50px 10px;
+    margin-bottom: 10px;
 }
 
 .recruitInfoItem h1 {
@@ -84,11 +86,12 @@
 
 .recruitInfoItem div {
     font-size: 1rem;
-    width: 700px;     
+    max-width: 700px;     
     color: #5f5f5f;
 }
 .recruitInfoItem p {
     margin: 0;
+    margin-bottom: 40px;
 }
 
 .recruitInfoItem h6 {
@@ -97,6 +100,7 @@
     margin-top: 0px;
     margin-bottom: 20px;
 }
+
 .recruitRule {
     display: flex;
     justify-content: center;
@@ -122,7 +126,32 @@
     height: 15px;
 }
 
+.recruitPartnerInfo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
+.recruitPartnerInfo a {
+    width: 300px;
+    margin-bottom: 50px;
+}
+
+.recruitPartnerInfo img{
+    width: 100%;
+}
+
+.recruitPartnerInfo h5 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.recruitPartnerInfo p{
+    margin-bottom: 3px;
+    color: #5f5f5f;
+    font-weight: 300;
+}
 
 
 @media (max-width: 1000px) {
