@@ -5,9 +5,6 @@ import {dbService} from '../fbase.js'
 import Fade from 'react-reveal/Fade'
 import '../css/Program.css';
 import '../css/main.css';
-import Data from '../components/dataSet/Data';
-
-
 
     // Program을 파이어베이로부터 받아오기
 function Program() {
@@ -25,7 +22,6 @@ function Program() {
     useEffect(()=>{
         getNetworking();
     }, [])
-    console.log(Data.info)
     return (
         <body>
             <div className='internship equalize'>

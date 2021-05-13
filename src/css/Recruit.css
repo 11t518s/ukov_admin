@@ -126,6 +126,11 @@
     height: 15px;
 }
 
+.imgbox {
+    height: 110px;
+    overflow: hidden;
+}
+
 .recruitPartnerInfo {
     display: flex;
     justify-content: space-between;

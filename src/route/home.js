@@ -21,9 +21,6 @@ function Home(props) {
     const scroll = Scroll.animateScroll;
 
     // 반응형을 위한 미디어 쿼리
-    const Mobile = useMediaQuery ({
-        query : "(max-width : 1000px)"
-        })
     const Web = useMediaQuery ({
         query : "(min-width : 1000px)"
     })
@@ -166,7 +163,7 @@ function Home(props) {
             </div>
             <div className='review equalize'>
             <h1>UKOV 후기</h1>
-            <a href='https://ukov.tistory.com/'><p>더 많은 후기러가기</p></a>
+            <a href='https://ukov.tistory.com/'><p>더 많은 후기 보러가기</p></a>
 
             <InternshipCarousel />
             </div>

@@ -4,31 +4,6 @@ import '../../css/Carousel.css';
 import {dbService} from '../../fbase.js'
 
 
- // 원래 화살표인데 좀 이상해서 패스
-function NextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, background: "#D3D3D3", borderRadius:"100px" }}
-        onClick={onClick}
-      />
-    );
-  }
-  
-  function PrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, ackground: "#D3D3D3", borderRadius:"100px" }}
-        onClick={onClick}
-      />
-    );
-  }
-
-
-  
 // 인턴쉽 정보 파이어베이스로 가져오기
 function InternshipCarousel(){
     let [internship, setInternship] = useState([])

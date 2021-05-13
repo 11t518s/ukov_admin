@@ -69,10 +69,10 @@ function Recruit() {
                 <p id='whiteText'>
                     스타트업 생태계를 함께 만들어갈<br/>
                     {info?.th}기 여러분의 지원
-                    {/* 자동화시키고 싶었습니당 ㅎ_ㅎ 하드코딩 하지 맙시다우리... */}
+                    
                     {info?.end_date < new Date() 
-                    ?(' 기다리고 있습니다!')
-                    :(' 감사합니다!')}
+                    ?(' 감사합니다!')
+                    :(' 기다리고 있습니다!')}
                 </p>
 
                 <div className='countBox'>
@@ -85,7 +85,7 @@ function Recruit() {
                     <div className='whiteBox'><p>21</p></div>
                 </div>
                 <br/><br/>
-                <button className='button3'><a href='https://docs.google.com/forms/d/e/1FAIpQLSfM4Xkgz-NPWf8chakCbccQWyXxA3K4RU65GeiQm4YUMmiNCA/viewform' target='blank'>지원하러 가기</a></button>
+                <button className='button3'><a href={info?.Link} target='blank'>지원하기</a></button>
 
                 </div>
 
@@ -96,7 +96,7 @@ function Recruit() {
                             <h6>대학생벤처기사단 {info?.th}기로 여러분을 초대합니다!</h6>
                             <p>
                                 스타트업 인재로 성장하고자 하는 대학생들을 위한 모임,{Web && <br/>}
-                                대학생벤처기사단이 이번 겨울을 함께 보낼 {info?.th}기 단원을 모집합니다<br/><br/>
+                                대학생벤처기사단이 {info?.th}기 단원을 모집합니다<br/><br/>
                                 한국 스타트업 생태계에 필요한 인재를 길러내기 위해 2009년에 창설된 UKOV는{Web && <br/>}
                                 소프트뱅크벤처스의 공식 후원을 받고 있는 유일한 학생단체로서{Web && <br/>}
                                 지난 {info?.year}년 간 {info?.alumni}여 명의 업계 인재들을 배출해왔습니다.<br/><br/>
@@ -133,7 +133,7 @@ function Recruit() {
     <div className='recruitPartnerInfo'>
         {recruit.map((recruit)=>(
                 <a href={recruit.recruitLink}>
-                    <img src={recruit.recruitURL} alt={recruit.title}/>
+                    <div className='imgbox'><img src={recruit.recruitURL} alt={recruit.title}/></div>
                     <h5>{recruit.title}</h5>
                     <p>{recruit.text1}</p>
                     <p>{recruit.text2}</p>
