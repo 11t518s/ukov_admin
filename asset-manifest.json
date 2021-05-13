@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ukov_adminpage/static/css/main.25fdb6df.chunk.css",
+    "main.js": "/ukov_adminpage/static/js/main.ca31bddc.chunk.js",
+    "main.js.map": "/ukov_adminpage/static/js/main.ca31bddc.chunk.js.map",
+    "runtime-main.js": "/ukov_adminpage/static/js/runtime-main.ac389e9e.js",
+    "runtime-main.js.map": "/ukov_adminpage/static/js/runtime-main.ac389e9e.js.map",
+    "static/js/2.f09c48a3.chunk.js": "/ukov_adminpage/static/js/2.f09c48a3.chunk.js",
+    "static/js/2.f09c48a3.chunk.js.map": "/ukov_adminpage/static/js/2.f09c48a3.chunk.js.map",
+    "index.html": "/ukov_adminpage/index.html",
+    "static/css/main.25fdb6df.chunk.css.map": "/ukov_adminpage/static/css/main.25fdb6df.chunk.css.map",
+    "static/js/2.f09c48a3.chunk.js.LICENSE.txt": "/ukov_adminpage/static/js/2.f09c48a3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac389e9e.js",
+    "static/js/2.f09c48a3.chunk.js",
+    "static/css/main.25fdb6df.chunk.css",
+    "static/js/main.ca31bddc.chunk.js"
+  ]
+}
