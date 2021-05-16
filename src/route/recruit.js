@@ -35,7 +35,7 @@ function Recruit() {
     // FAQ데이터 받아오기
     let [FAQ, setFAQ] = useState([]);
     const getFAQ = async () =>{
-        const dbFAQ = await dbService.collection("FAQ").get();
+        const dbFAQ = await dbService.collection("FAQ").orderBy("createdAt").get();
         dbFAQ.forEach((document) => {
             const newFAQ = {
                 ...document.data(),
@@ -47,7 +47,7 @@ function Recruit() {
     // recruit 데이터 받아오기
     let [recruit, setRecruit] = useState([]);
     const getRecruit = async () =>{
-        const dbrecruit = await dbService.collection("recruit").get();
+        const dbrecruit = await dbService.collection("recruit").orderBy("createdAt").get();
         dbrecruit.forEach((document) => {
             const newRecruit = {
                 ...document.data(),
@@ -193,7 +193,15 @@ function Recruit() {
         {FAQ.map((FAQ)=>(
             <>
                 <h6>Q. {FAQ.Q}</h6>
-                <p>{FAQ.A}<br/>{FAQ.A2}<br/>{FAQ.A3}<br/>{FAQ.A4}<br/>{FAQ.A5}</p>
+                <p>{FAQ.A}
+                    {FAQ.A2 && <br/>}{FAQ.A2}
+                    {FAQ.A3 && <br/>}{FAQ.A3}
+                    {FAQ.A4 && <br/>}{FAQ.A4}
+                    {FAQ.A5 && <br/>}{FAQ.A5}
+                    {FAQ.A6 && <br/>}{FAQ.A6}
+                    {FAQ.A7 && <br/>}{FAQ.A7}
+                    {FAQ.A8 && <br/>}{FAQ.A8}
+                </p>
             </>
         ))}
     </div>

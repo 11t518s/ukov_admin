@@ -10,7 +10,7 @@ import '../css/main.css';
 function Program() {
     let [networking, setNetworking] = useState([])
     const getNetworking = async () =>{
-        const dbnetworking = await dbService.collection("networking").get();
+        const dbnetworking = await dbService.collection("networking").orderBy("createdAt").get();
         dbnetworking.forEach((document) => {
             const newnetworking = {
                 ...document.data(),
