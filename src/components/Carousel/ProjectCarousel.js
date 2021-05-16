@@ -9,7 +9,7 @@ function ProjectCarousel(){
 
     let [project, setProject] = useState([])
     const getProject = async () =>{
-        const dbproject = await dbService.collection("project").get();
+        const dbproject = await dbService.collection("project").orderBy("createdAt").get();
         dbproject.forEach((document) => {
             const newproject = {
                 ...document.data(),

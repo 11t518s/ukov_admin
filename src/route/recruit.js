@@ -5,6 +5,8 @@ import {dbService} from '../fbase'
 import Down from './down.png';
 import Right from './right.png';
 import { useMediaQuery } from 'react-responsive';
+import moment from 'react-moment';
+import Moment from 'react-moment';
 
 
 function Recruit() {
@@ -60,7 +62,6 @@ function Recruit() {
         getFAQ();
         getRecruit();
     }, [])
-
     return(
         <body>
             <div className='dDay'>
@@ -69,8 +70,7 @@ function Recruit() {
                 <p id='whiteText'>
                     스타트업 생태계를 함께 만들어갈<br/>
                     {info?.th}기 여러분의 지원
-                    
-                    {info?.end_date < new Date() 
+                    {info?.Finish-32400 > new Date() 
                     ?(' 감사합니다!')
                     :(' 기다리고 있습니다!')}
                 </p>
@@ -85,7 +85,10 @@ function Recruit() {
                     <div className='whiteBox'><p>21</p></div>
                 </div>
                 <br/><br/>
-                <button className='button3'><a href={info?.Link} target='blank'>지원하기</a></button>
+                {info?.Finish-32400 > new Date() 
+                    ?null
+                    :<button className='button3'><a href={info?.Link} target='blank'>지원하기</a></button>}
+                
 
                 </div>
 

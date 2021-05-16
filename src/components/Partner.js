@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade'
 function Partner() {
     let [partner, setPartner] = useState([])
     const getPartner = async () =>{
-        const dbpartner = await dbService.collection("partner").get();
+        const dbpartner = await dbService.collection("partner").orderBy("createdAt").get();
         dbpartner.forEach((document) => {
             const newpartner = {
                 ...document.data(),

@@ -8,7 +8,7 @@ import {dbService} from '../../fbase.js'
 function InternshipCarousel(){
     let [internship, setInternship] = useState([])
     const getInternship = async () =>{
-        const dbinternship = await dbService.collection("internship").get();
+        const dbinternship = await dbService.collection("internship").orderBy("createdAt").get();
         dbinternship.forEach((document) => {
             const newinternship = {
                 ...document.data(),
