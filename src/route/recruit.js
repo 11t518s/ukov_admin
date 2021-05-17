@@ -143,6 +143,10 @@ function Recruit() {
                     <p>{recruit.text3}</p>
                     <p>{recruit.text4}</p>
                     <p>{recruit.text5}</p>
+                    <p>{recruit.text6}</p>
+                    <p>{recruit.text7}</p>
+                    <p>{recruit.text8}</p>
+
                 </a>
         ))}
     </div>
