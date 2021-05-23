@@ -72,17 +72,6 @@ function Recruit() {
                     :' 기다리고 있습니다.'}
 
                 </p>
-
-                <div className='countBox'>
-                    <div className='whiteBox'><p>5</p></div>
-                    <div className='dot'>.</div>
-                    <div className='whiteBox'><p>7</p></div>
-                    <div className='dash'>-</div>
-                    <div className='whiteBox'><p>5</p></div>
-                    <div className='dot'>.</div>
-                    <div className='whiteBox'><p>21</p></div>
-                </div>
-                <br/><br/>
                 {info?.recruitOver
                 ?null
                 :<button className='button3'><a href={info?.Link} target='blank'>지원하기</a></button>}
