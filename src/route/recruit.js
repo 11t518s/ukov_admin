@@ -5,9 +5,6 @@ import {dbService} from '../fbase'
 import Down from './down.png';
 import Right from './right.png';
 import { useMediaQuery } from 'react-responsive';
-import moment from 'react-moment';
-import Moment from 'react-moment';
-
 
 function Recruit() {
 
@@ -62,17 +59,18 @@ function Recruit() {
         getFAQ();
         getRecruit();
     }, [])
+
     return(
         <body>
             <div className='dDay'>
-                {/* 마감날 - 현재 시간으로 d-day count만들자 */}
                 <h1 id='whiteText'>지금 지원하세요!</h1>
                 <p id='whiteText'>
                     스타트업 생태계를 함께 만들어갈<br/>
                     {info?.th}기 여러분의 지원
-                    {info?.Finish-32400 > new Date() 
-                    ?(' 감사합니다!')
-                    :(' 기다리고 있습니다!')}
+                    {info?.recruitOver
+                    ?' 감사합니다!'
+                    :' 기다리고 있습니다.'}
+
                 </p>
 
                 <div className='countBox'>
@@ -85,10 +83,9 @@ function Recruit() {
                     <div className='whiteBox'><p>21</p></div>
                 </div>
                 <br/><br/>
-                {info?.Finish-32400 > new Date() 
-                    ?null
-                    :<button className='button3'><a href={info?.Link} target='blank'>지원하기</a></button>}
-                
+                {info?.recruitOver
+                ?null
+                :<button className='button3'><a href={info?.Link} target='blank'>지원하기</a></button>}
 
                 </div>
 
@@ -154,7 +151,7 @@ function Recruit() {
 <hr />
 <div className='recruitInfoItem'>
     <h1>지원 방법</h1>
-    <div>하단의 지원서 작성 후, typeform 제출<br/>
+    <div>하단의 지원서 작성 후 제출<br/>
     디자인 직군의 경우 포트폴리오 첨부하여 제출<br/>
 
     <a href={info?.file} className='button2'>지원서 다운로드</a>
