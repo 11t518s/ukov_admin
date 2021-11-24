@@ -63,7 +63,7 @@ function Recruit() {
   }, []);
 
   return (
-    <body>
+    <div>
       <div className="dDay">
         <h1 id="whiteText">지금 지원하세요!</h1>
         <p id="whiteText">
@@ -136,8 +136,8 @@ function Recruit() {
         <div className="recruitInfoItem">
           <h1>선발 부분</h1>
           <div className="recruitPartnerInfo">
-            {recruit.map((recruit) => (
-              <a href={recruit.recruitLink}>
+            {recruit.map((recruit, idx) => (
+              <a href={recruit.recruitLink} key={idx}>
                 <div className="imgbox">
                   <img src={recruit.recruitURL} alt={recruit.title} />
                 </div>
@@ -213,12 +213,12 @@ function Recruit() {
           </div>
         </div>
         <hr />
-        <div class="recruitInfoItem">
+        <div className="recruitInfoItem">
           <h1>FAQ</h1>
           <div>
-            {FAQ.map((FAQ) => (
+            {FAQ.map((FAQ, idx) => (
               <>
-                <h6>Q. {FAQ.Q}</h6>
+                <h6 key={idx}>Q. {FAQ.Q}</h6>
                 <p>
                   {FAQ.A}
                   {FAQ.A2 && <br />}
@@ -242,7 +242,7 @@ function Recruit() {
         </div>
         <hr />
       </div>
-    </body>
+    </div>
   );
 }
 export default Recruit;

@@ -23,7 +23,7 @@ function Program() {
         getNetworking();
     }, [])
     return (
-        <body>
+        <div>
             <div className='internship equalize'>
                 <h1>스타트업 인턴십</h1>
                 <p>
@@ -42,10 +42,10 @@ function Program() {
                 <h1>네트워킹</h1>
                 <p>세션, 강연 등 네트워킹 프로그램.</p>
 
-        <div class='networkingBox'>
+        <div className='networkingBox'>
             {/* 네트워킹 자료들 파이어베이스로부터 받아오기 */}
-            {networking.map((networking)=>(
-                <a href={networking.networkingLink}>
+            {networking.map((networking, idx)=>(
+                <a href={networking.networkingLink} key={idx}>
                     <Fade bottom>
                         <div>
                             <div className='networkingImg'>
@@ -60,7 +60,7 @@ function Program() {
         </div>
     
             </div>
-        </body>
+        </div>
 
     )
 

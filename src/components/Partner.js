@@ -19,9 +19,9 @@ function Partner() {
         getPartner();
     }, [])
     return(
-        <div class='partnerBox'>
-            {partner.map((partner)=>(
-                <a href={partner.partnerLink}>
+        <div className='partnerBox'>
+            {partner.map((partner, idx)=>(
+                <a href={partner.partnerLink} key={idx}>
                     <Fade bottom>
                         <div>
                             <img src={partner.partnerURL} alt={partner.partnerLink}/>

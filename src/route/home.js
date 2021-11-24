@@ -43,7 +43,7 @@ function Home(props) {
     }, [])
 
     return(
-        <body className='body'>
+        <div className='body'>
             <div className='info equalize'>
                 <div className='info_top'>
                     <h1>
@@ -184,7 +184,7 @@ function Home(props) {
                     주체적으로 배우고 변화에 도전하면서 스타트업 생태계의 인재가 될 당신을 기다립니다.</p>
                 <Link exact to='/recruit'><div  className='button1' onClick={()=>{scroll.scrollToTop();}}>지원 정보 보러가기</div></Link>
             </div>        
-        </body>
+        </div>
     )
 }
 export default Home;

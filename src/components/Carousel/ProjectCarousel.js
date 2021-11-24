@@ -39,8 +39,8 @@ class Slide extends React.Component {
         return (
           <div>
             <Slider {...settings}>
-              {project.map((project)=>(
-                  <div className='listBox'>
+              {project.map((project, idx)=>(
+                  <div className='listBox' key={idx}>
                       <a href={project.projectLink}>
                           <div className='smallBox'>
                             <img src={project.projectURL} alt='project'/>

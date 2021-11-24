@@ -37,8 +37,8 @@ class Slide extends React.Component {
         return (
           <div>
             <Slider {...settings}>
-              {internship.map((internship)=>(
-                  <div className='listBox'>
+              {internship.map((internship, idx)=>(
+                  <div className='listBox' key={idx}>
                       <a href={internship.internshipLink}>
                           <div className='smallBox'>
                             <img src={internship.internshipURL} alt='internship'/>
