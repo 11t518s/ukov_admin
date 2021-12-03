@@ -1,16 +1,17 @@
-body{
-    width:100%;
-    overflow-x:hidden;
-    font-family: 'Noto Sans KR';
-    }
 
-h1{
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Noto Sans KR';
+}
+
+h1 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 22px
 }
 
-p{
+p {
     font-size: 1rem;
     font-weight: 400;
     margin-top: 0px;
@@ -20,12 +21,13 @@ p{
 #whiteText {
     color: white;
 }
+
 .equalize {
     max-width: 1000px;
     margin: auto;
     margin-top: 120px;
     margin-bottom: 60px;
-} 
+}
 
 @media (max-width: 1000px) {
 

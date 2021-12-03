@@ -1,0 +1,81 @@
+button, input[type=submit], input[type=reset] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.commonModalWrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commonModalOverlay {
+    z-index: 20;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commonModalContent {
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+    width: 505px;
+    height: 505px;
+    overflow-y: auto;
+    overflow: hidden;
+}
+
+.commonModalContent::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera*/
+}
+
+@media screen and (max-width: 1000px) {
+    .commonModalContent {
+        width: 350px;
+    }
+}
+
+.commonModalContent button {
+    z-index: 41;
+    position: absolute;
+    top: 14vh;
+    right: 28vw;
+}
+
+@media screen and (max-width: 1000px) {
+    .commonModalContent button {
+        right: 80px;
+    }
+}
+
+.modalImg {
+    width: 510px;
+}
+
+
+/*# sourceMappingURL=index.css.map */
